@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="espacio"></div>
+    <h1 align="center">Proveedores</h1>
+    <div class="espacio"></div>   
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Fecha registro</th>
+          <th scope="col">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proveedor of proveedores">
+          <td>{{ proveedor._id }}</td>
+          <td>{{ proveedor.nombre }}</td>
+          <td>{{ proveedor.direccion }}</td>
+          <td>{{ proveedor.telefono }}</td>
+          <td>{{ proveedor.fecha_registro }}</td>
+          <td>
+            <a class="btn btn-primary nbsp" [routerLink]="['/proveedor/edit/', proveedor._id]">Editar</a>
+            <button type="button" class="btn btn-primary" (click)="deleteProveedor(proveedor._id)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="espacio"></div>
+    <a href="#" routerLink="/proveedor/create/" class="btn btn-success">Crear nuevo proveedor</a>
+ </div>

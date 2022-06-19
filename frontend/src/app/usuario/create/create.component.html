@@ -1,0 +1,64 @@
+<div class="container">
+
+    <div align="center">
+
+        <div class="card card-primary mb-3 contenedor">
+          <div class="card-header bg-primary">Datos</div>
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          
+                <div class="form-group mb-3">
+                    <label>Nombre</label>
+                    <input
+                      type="text"
+                      formControlName="nombre"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
+                    />
+                    <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
+                      <div *ngIf="f['nombre'].errors['required']">El nombre es requerido</div>
+                    </div>
+                </div>
+          
+                <div class="form-group mb-3">
+                    <label>Clave</label>
+                    <input
+                      type="password"
+                      formControlName="clave"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['clave'].errors }"
+                    />
+                    <div *ngIf="submitted && f['clave'].errors" class="invalid-feedback">
+                      <div *ngIf="f['clave'].errors['required']">La clave es requerida</div>
+                    </div>
+                </div>
+ 
+                <div class="form-group mb-3">
+                    <label>Tipo</label>
+                    <select
+                      type="text"
+                      formControlName="tipo"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['tipo'].errors }"
+                    >
+                    <option value="" selected disabled hidden>Seleccione un tipo de usuario</option>                               
+                    <option *ngFor="let tipousuario of tiposusuarios" value= "{{tipousuario._id}}">
+                    {{ tipousuario.nombre }}
+                    </select>
+                    <div *ngIf="submitted && f['tipo'].errors" class="invalid-feedback">
+                      <div *ngIf="f['tipo'].errors['required']">El tipo de usuario es requerido</div>
+                    </div>
+                </div>
+
+                <div class="espacio"></div>
+                
+                <button type="submit" class="btn btn-primary nbsp">Guardar</button>
+                <a href="#" routerLink="/usuario/index" class="btn btn-primary">Atras</a>
+
+            </form>
+          </div>
+        </div>
+            
+    </div>
+
+</div>

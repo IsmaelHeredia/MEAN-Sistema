@@ -1,0 +1,58 @@
+<div class="card card-primary contenedor" style="margin-top: 100px">
+    <div class="card-header bg-primary">Cambiar usuario</div>
+      <div class="card-body">
+          <div class="card-block">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <fieldset>
+                <legend>Datos</legend>
+
+                <div class="form-group mb-3">
+                  <label>Usuario</label>
+                  <input
+                    type="text"
+                    formControlName="usuario"
+                    class="form-control"
+                    readonly="readonly"
+                    [ngClass]="{ 'is-invalid': submitted && f['usuario'].errors }"
+                  />
+                  <div *ngIf="submitted && f['usuario'].errors" class="invalid-feedback">
+                    <div *ngIf="f['usuario'].errors['required']">El usuario es requerido</div>
+                  </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label>Nuevo usuario</label>
+                    <input
+                      type="text"
+                      formControlName="nuevo_usuario"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['nuevo_usuario'].errors }"
+                    />
+                    <div *ngIf="submitted && f['nuevo_usuario'].errors" class="invalid-feedback">
+                      <div *ngIf="f['nuevo_usuario'].errors['required']">El nuevo usuario es requerido</div>
+                    </div>
+                  </div>
+
+                <div class="form-group mb-3">
+                  <label>Clave actual</label>
+                  <input
+                    type="password"
+                    formControlName="clave_actual"
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['clave_actual'].errors }"
+                  />
+                  <div *ngIf="submitted && f['clave_actual'].errors" class="invalid-feedback">
+                    <div *ngIf="f['clave_actual'].errors['required']">La clave actual es requerida</div>
+                  </div>
+                </div>
+
+               <div class="mt-5 text-center">
+                  <p class="lead">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  </p>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+    </div>
+  </div>

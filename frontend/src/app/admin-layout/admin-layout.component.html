@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/administracion/index">Administración</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="/administracion/index" name="inicio"><i class="fa fa-home espacio-icono" aria-hidden="true"></i>Inicio<span class="sr-only"></span></a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="gestionar"><i class="fa fa-tasks espacio-icono" aria-hidden="true"></i>Gestionar <span class="caret"></span></a>
+                <div class="dropdown-menu" aria-labelledby="gestionar">
+                    <a class="dropdown-item" href="/producto/index">Productos</a>
+                    <a class="dropdown-item" href="/proveedor/index">Proveedores</a>   
+                    <a *ngIf="tipo == 'Administrador'" class="dropdown-item" href="/usuario/index">Usuarios</a>    
+                </div>
+            </li>     
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="cuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle espacio-icono" aria-hidden="true"></i>{{nombre_usuario}} <span class="caret"></span></a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cuenta">
+                    <a class="dropdown-item" href="/cuenta/cambiarusuario" name="cambiar_usuario">Cambiar Usuario</a>
+                    <a class="dropdown-item" href="/cuenta/cambiarclave" name="cambiar_clave">Cambiar Clave</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="btnCerrarSesion()">Salir</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>     
+<section>
+  <div class="container-fluid" style="margin-top: 100px">
+    <router-outlet></router-outlet>
+  </div>
+</section>    
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; Ismael Heredia 2022 &middot; All Rights Reserved &middot;</p>
+    </div>
+</footer>

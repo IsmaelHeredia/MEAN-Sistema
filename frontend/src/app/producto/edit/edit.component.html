@@ -1,0 +1,77 @@
+<div class="container">
+
+    <div align="center">
+
+        <div class="card card-primary mb-3 contenedor">
+          <div class="card-header bg-primary">Datos</div>
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          
+                <div class="form-group mb-3">
+                    <label>Nombre</label>
+                    <input
+                      type="text"
+                      formControlName="nombre"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
+                    />
+                    <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
+                      <div *ngIf="f['nombre'].errors['required']">El nombre es requerido</div>
+                    </div>
+                </div>
+          
+                <div class="form-group mb-3">
+                    <label>Descripción</label>
+                    <textarea
+                      formControlName="descripcion"
+                      class="form-control"
+                      rows="5"
+                      [ngClass]="{ 'is-invalid': submitted && f['descripcion'].errors }"
+                    ></textarea>
+                    <div *ngIf="submitted && f['descripcion'].errors" class="invalid-feedback">
+                      <div *ngIf="f['descripcion'].errors['required']">La descripción es requerida</div>
+                    </div>
+                </div>
+ 
+                <div class="form-group mb-3">
+                    <label>Precio</label>
+                    <input
+                      type="text"
+                      formControlName="precio"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['precio'].errors }"
+                    />
+                    <div *ngIf="submitted && f['precio'].errors" class="invalid-feedback">
+                      <div *ngIf="f['precio'].errors['required']">El precio es requerido</div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label>Proveedor</label>
+                    <select
+                      type="text"
+                      formControlName="proveedor"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['proveedor'].errors }"
+                    >
+                    <option value="" selected disabled hidden>Seleccione un proveedor</option>                               
+                    <option *ngFor="let proveedor of proveedores" value= "{{proveedor._id}}">
+                    {{ proveedor.nombre }}
+                    </select>
+                    <div *ngIf="submitted && f['proveedor'].errors" class="invalid-feedback">
+                      <div *ngIf="f['proveedor'].errors['required']">El proveedor es requerido</div>
+                    </div>
+                </div>
+
+                <div class="espacio"></div>
+                
+                <button type="submit" class="btn btn-primary nbsp">Guardar</button>
+                <a href="#" routerLink="/producto/index" class="btn btn-primary">Atras</a>
+
+            </form>
+          </div>
+        </div>
+            
+    </div>
+
+</div>
