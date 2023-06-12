@@ -16,12 +16,15 @@ Bootstrap 5
 
 **! Backend**
 
+```
 npm install
-
 node index.js
+Load http://localhost:3030/instalar to install tables and default values in the database
+```
 
 **! Frontend**
 
+```
 npm install
-
 ng serve --port 9999
+```
